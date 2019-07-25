@@ -5,12 +5,21 @@
 {% block content %}
 <br>
 <div class="row">
+  <div class="card-deck m-4">
   {% for destination in destinations %}
-  <a href="{% url 'destination-detail' destination.id %}">
-    <img src="{{destination.pretty_picture.url}}" />
-    <p>{{destination.name}}</p>
-    <p>{{destination.activities}}</p>
-  </a>
+   <div class="col-md-4 col-sm-6">
+        <div class="card my-card animated fadeInUp">
+        	<img class="card-img-top h-50" src="{{destination.pretty_picture.url}}" />
+        	 <div class="card-body">
+			     <h5 class="card-title">{{destination.name}}</h5>
+			    <p class="card-text">{{destination.activities}}</p> 
+			  </a>
+			</div>	
+			<div class="card-footer text-right">
+				 <a href="{% url 'destination-detail' destination.id %}"><i class="fa fa-angle-double-right fa-2x"></i></a>
+           </div>	
+		</div>
+	</div>
   {% endfor %}
 </div>
 {% endblock content %}
